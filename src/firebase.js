@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+import { initializeFirestore } from 'firebase/firestore';
 
 // این چند خط رو با کلیدهایی که از کنسول Firebase گرفتی جایگزین کن.
 // (توضیح کامل مرحله‌به‌مرحله توی فایل README.md هست)
@@ -13,4 +13,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+export const db = initializeFirestore(app, {
+  experimentalForceLongPolling: true,
+});
